@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://osjgxmrxpw8o"
+path="res://.godot/imported/game musoc.mp3-f9ba4f1db9642d9d04c007092b0f6a57.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Music/game musoc.mp3"
+dest_files=["res://.godot/imported/game musoc.mp3-f9ba4f1db9642d9d04c007092b0f6a57.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

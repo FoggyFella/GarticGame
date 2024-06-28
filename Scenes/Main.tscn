@@ -1,0 +1,199 @@
+[gd_scene load_steps=13 format=3 uid="uid://bp2bm3mk0qrqc"]
+
+[ext_resource type="Script" path="res://Scripts/CameraControls.gd" id="1_ckqpr"]
+[ext_resource type="PackedScene" uid="uid://cvb4s7lo2rbaw" path="res://Scenes/Player/Player.tscn" id="1_kuivi"]
+[ext_resource type="PackedScene" uid="uid://bovj5tnajgimu" path="res://Scenes/Enemies/EnemyDirector.tscn" id="1_pqjal"]
+[ext_resource type="Texture2D" uid="uid://cu1mxtwi5dbwi" path="res://Assets/Textures/MapGlow.png" id="4_foq3l"]
+[ext_resource type="AudioStream" uid="uid://da5twfmf1rhxu" path="res://Assets/Sound/Music/MainMusic.mp3" id="5_570fx"]
+[ext_resource type="Texture2D" uid="uid://bvjslejx2abus" path="res://Assets/Textures/grass card.png" id="6_wwx7b"]
+[ext_resource type="Texture2D" uid="uid://bqlqrlppsxr2s" path="res://Assets/Textures/grass card2.png" id="7_k4jr1"]
+[ext_resource type="Texture2D" uid="uid://ctsjegof2sxkm" path="res://Assets/Textures/grass card3.png" id="8_e4al5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmccf"]
+albedo_color = Color(0.117647, 0.427451, 0.309804, 1)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gsvly"]
+sky_top_color = Color(0.435294, 0.529412, 0.92549, 1)
+sky_horizon_color = Color(0.470588, 0.67451, 0.882353, 1)
+ground_bottom_color = Color(0.470588, 0.67451, 0.882353, 1)
+ground_horizon_color = Color(0.470588, 0.67451, 0.882353, 1)
+
+[sub_resource type="Sky" id="Sky_k0fgl"]
+sky_material = SubResource("ProceduralSkyMaterial_gsvly")
+
+[sub_resource type="Environment" id="Environment_2d4lc"]
+background_mode = 2
+sky = SubResource("Sky_k0fgl")
+ambient_light_source = 3
+ambient_light_color = Color(0.364706, 0.364706, 0.364706, 1)
+ambient_light_sky_contribution = 0.3
+ambient_light_energy = 2.35
+glow_enabled = true
+glow_intensity = 1.19
+glow_strength = 1.15
+glow_mix = 0.146
+glow_bloom = 0.15
+glow_blend_mode = 4
+glow_hdr_scale = 1.71
+fog_enabled = true
+fog_light_color = Color(1, 1, 1, 1)
+fog_light_energy = 5.01
+fog_density = 0.0001
+fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1
+
+[node name="Main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.79541, 0.606072, 0, -0.606072, 0.79541, 0, 10.166, 10.717)
+projection = 1
+size = 30.0
+near = 0.001
+script = ExtResource("1_ckqpr")
+max_zoom = 30.0
+min_zoom = 13.0
+scroll = 3.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+collision_mask = 6
+size = Vector3(100, 0.1, 100)
+material = SubResource("StandardMaterial3D_hmccf")
+
+[node name="Player" parent="." instance=ExtResource("1_kuivi")]
+
+[node name="EnemyDirector" parent="." instance=ExtResource("1_pqjal")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.377162, -0.517225, 0.768263, 0, 0.829525, 0.558469, -0.926147, 0.210633, -0.312865, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2d4lc")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(227.202, 0, 0, 0, -9.9313e-06, -227.202, 0, 227.202, -9.9313e-06, 0, -1.80211, 0)
+texture = ExtResource("4_foq3l")
+
+[node name="Barrier1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -50.5)
+visible = false
+size = Vector3(100, 31, 1)
+
+[node name="Barrier2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 50.5)
+visible = false
+size = Vector3(100, 31, 1)
+
+[node name="Barrier3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50.6, 15, -0.25)
+visible = false
+size = Vector3(102.5, 31, 1)
+
+[node name="Barrier4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50.7, 15, -0.25)
+visible = false
+size = Vector3(102.5, 31, 1)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_570fx")
+volume_db = -6.5
+autoplay = true
+
+[node name="Grass" type="Node3D" parent="."]
+
+[node name="Sprite3D2" type="Sprite3D" parent="Grass"]
+transform = Transform3D(1, 0, 0, 0, 0.901312, 0.433171, 0, -0.433171, 0.901312, -4.20656, 1.05312, 4.13046)
+modulate = Color(0.458824, 0.521569, 0.407843, 0.45098)
+texture = ExtResource("6_wwx7b")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Grass"]
+transform = Transform3D(1, 0, 0, 0, 0.901312, 0.433171, 0, -0.433171, 0.901312, -24.3283, 1.05312, -13.3653)
+modulate = Color(0.458824, 0.521569, 0.407843, 0.45098)
+texture = ExtResource("6_wwx7b")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Grass"]
+transform = Transform3D(1, 0, 0, 0, 0.901312, 0.433171, 0, -0.433171, 0.901312, -15.8735, 1.05312, 34.5644)
+modulate = Color(0.458824, 0.521569, 0.407843, 0.45098)
+texture = ExtResource("6_wwx7b")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Grass"]
+transform = Transform3D(1, 0, 0, 0, 0.901312, 0.433171, 0, -0.433171, 0.901312, 12.6242, 1.05312, -6.70184)
+modulate = Color(0.458824, 0.521569, 0.407843, 0.45098)
+texture = ExtResource("7_k4jr1")
+
+[node name="Sprite3D9" type="Sprite3D" parent="Grass"]
+transform = Transform3D(1, 0, 0, 0, 0.901312, 0.433171, 0, -0.433171, 0.901312, 30.9357, 1.05312, 28.9362)
+modulate = Color(0.458824, 0.521569, 0.407843, 0.45098)
+texture = ExtResource("7_k4jr1")
+
+[node name="Sprite3D10" type="Sprite3D" parent="Grass"]
+transform = Transform3D(1, 0, 0, 0, 0.901312, 0.433171, 0, -0.433171, 0.901312, 6.90619, 1.05312, -37.1797)
+modulate = Color(0.458824, 0.521569, 0.407843, 0.45098)
+texture = ExtResource("7_k4jr1")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Grass"]
+transform = Transform3D(1, 0, 0, 0, 0.901312, 0.433171, 0, -0.433171, 0.901312, 23.1046, 1.05312, 15.7008)
+modulate = Color(0.458824, 0.521569, 0.407843, 0.45098)
+texture = ExtResource("8_e4al5")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Grass"]
+transform = Transform3D(1.12523, 0, 0, 0, 1.01418, 0.487418, 0, -0.487418, 1.01418, -37.4982, 1.3968, 15.7008)
+modulate = Color(0.458824, 0.521569, 0.407843, 0.45098)
+texture = ExtResource("8_e4al5")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Grass"]
+transform = Transform3D(1.12523, 0, 0, 0, 1.01418, 0.487418, 0, -0.487418, 1.01418, -10.3471, 1.3968, -31.7753)
+modulate = Color(0.458824, 0.521569, 0.407843, 0.45098)
+texture = ExtResource("8_e4al5")
+
+[node name="Grass2" type="Node3D" parent="."]
+transform = Transform3D(-0.992137, 0, 0.12516, 0, 1, 0, -0.12516, 0, -0.992137, -8.42859, 0, -7.94384)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Grass2"]
+transform = Transform3D(1, -3.72529e-09, 0, 0, 0.926496, -0.376305, 0, 0.376305, 0.926496, -4.20656, 1.05312, 4.13046)
+modulate = Color(0.211765, 0.247059, 0.180392, 0.286275)
+texture = ExtResource("6_wwx7b")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Grass2"]
+transform = Transform3D(1, -3.72529e-09, 0, 0, 0.926496, -0.376305, 0, 0.376305, 0.926496, -24.3283, 1.05312, -13.3653)
+modulate = Color(0.211765, 0.247059, 0.180392, 0.286275)
+texture = ExtResource("6_wwx7b")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Grass2"]
+transform = Transform3D(1, -3.72529e-09, 0, 0, 0.926496, -0.376305, 0, 0.376305, 0.926496, -15.8735, 1.05312, 34.5644)
+modulate = Color(0.211765, 0.247059, 0.180392, 0.286275)
+texture = ExtResource("6_wwx7b")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Grass2"]
+transform = Transform3D(1, -3.72529e-09, 0, 0, 0.926496, -0.376305, 0, 0.376305, 0.926496, 12.6242, 1.05312, -6.70185)
+modulate = Color(0.211765, 0.247059, 0.180392, 0.286275)
+texture = ExtResource("7_k4jr1")
+
+[node name="Sprite3D9" type="Sprite3D" parent="Grass2"]
+transform = Transform3D(1, -3.72529e-09, 0, 0, 0.926496, -0.376305, 0, 0.376305, 0.926496, 30.9357, 1.05312, 28.9362)
+modulate = Color(0.211765, 0.247059, 0.180392, 0.286275)
+texture = ExtResource("7_k4jr1")
+
+[node name="Sprite3D10" type="Sprite3D" parent="Grass2"]
+transform = Transform3D(1, -3.72529e-09, 0, 0, 0.926496, -0.376305, 0, 0.376305, 0.926496, 6.90619, 1.05312, -37.1797)
+modulate = Color(0.211765, 0.247059, 0.180392, 0.286275)
+texture = ExtResource("7_k4jr1")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Grass2"]
+transform = Transform3D(1, -3.72529e-09, 0, 0, 0.926496, -0.376305, 0, 0.376305, 0.926496, 23.1046, 1.05312, 15.7008)
+modulate = Color(0.211765, 0.247059, 0.180392, 0.286275)
+texture = ExtResource("8_e4al5")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Grass2"]
+transform = Transform3D(1.12523, -3.72529e-09, 1.49012e-08, 0, 1.04252, -0.42343, 0, 0.42343, 1.04252, -37.4982, 1.3968, 15.7008)
+modulate = Color(0.211765, 0.247059, 0.180392, 0.286275)
+texture = ExtResource("8_e4al5")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Grass2"]
+transform = Transform3D(1.12523, -3.72529e-09, 1.49012e-08, 0, 1.04252, -0.42343, 0, 0.42343, 1.04252, -10.3471, 1.3968, -31.7753)
+modulate = Color(0.211765, 0.247059, 0.180392, 0.286275)
+texture = ExtResource("8_e4al5")

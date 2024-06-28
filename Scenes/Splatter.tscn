@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://taj1qkd0et1m"]
+
+[ext_resource type="Texture2D" uid="uid://nwm7w7e6gqy5" path="res://Assets/Textures/Splatter1.png" id="1_gan8w"]
+[ext_resource type="Script" path="res://Scripts/Splatter.gd" id="1_xepv4"]
+
+[node name="Splatter" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("1_gan8w")
+script = ExtResource("1_xepv4")

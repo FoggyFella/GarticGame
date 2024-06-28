@@ -1,0 +1,1091 @@
+[gd_scene load_steps=33 format=3 uid="uid://cp6ytaq80ogtb"]
+
+[ext_resource type="FontFile" uid="uid://cg6wlkpjn631t" path="res://Assets/Fonts/londrina/LondrinaSolid-Regular.otf" id="1_0ghik"]
+[ext_resource type="Script" path="res://Scenes/Enemies/UI.gd" id="1_u11sd"]
+[ext_resource type="Script" path="res://Scripts/EnemySelectorButton.gd" id="2_3w4uh"]
+[ext_resource type="Texture2D" uid="uid://hojtfg7qidro" path="res://Assets/EnemyRenders/slime.png" id="4_oeio2"]
+[ext_resource type="Texture2D" uid="uid://cjeoc1vnr4wyc" path="res://Assets/EnemyRenders/gremlin.png" id="5_6o8r0"]
+[ext_resource type="Texture2D" uid="uid://cgamgyylgnhr8" path="res://Assets/Textures/locked.png" id="5_rhqxi"]
+[ext_resource type="Texture2D" uid="uid://cdsxfpch8elks" path="res://Assets/EnemyRenders/spider.png" id="6_j5d5g"]
+[ext_resource type="Texture2D" uid="uid://cnuhw470aeomh" path="res://Assets/EnemyRenders/gremlin archer.png" id="7_f1abo"]
+[ext_resource type="Texture2D" uid="uid://cgu67clgxwiti" path="res://Assets/EnemyRenders/gremlin leader.png" id="8_cjxgq"]
+[ext_resource type="Texture2D" uid="uid://b8epr1spu6jym" path="res://Assets/TutorialStuff/Player.jpg" id="10_plov8"]
+[ext_resource type="Texture2D" uid="uid://dwmr5teyikb1p" path="res://Assets/Textures/PlayerArea.png" id="11_qh7ci"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a4vny"]
+font = ExtResource("1_0ghik")
+font_size = 41
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1.499)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6usr7"]
+font = ExtResource("1_0ghik")
+font_size = 26
+font_color = Color(1, 1, 1, 0.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fkfg"]
+bg_color = Color(0.631373, 0.309804, 0.133333, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44tmv"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.478431, 0.227451, 0.0862745, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73e1k"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.329412, 0.145098, 0.0470588, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdrr0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.72549, 0.152941, 0.215686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jw1s"]
+bg_color = Color(0.662745, 0.662745, 0.662745, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.168627, 0.0627451, 0.0117647, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_v0hiw"]
+resource_name = "Buttons"
+allow_unpress = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_l581j"]
+font = ExtResource("1_0ghik")
+font_color = Color(0, 0, 0, 1)
+outline_size = 11
+shadow_color = Color(1, 1, 1, 0)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqco2"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.72549, 0.152941, 0.215686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i613a"]
+bg_color = Color(0.662745, 0.662745, 0.662745, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.168627, 0.0627451, 0.0117647, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_dji3i"]
+font = ExtResource("1_0ghik")
+font_size = 18
+font_color = Color(0.917647, 0, 0.129412, 1)
+shadow_size = 3
+shadow_color = Color(1, 1, 1, 0)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="Animation" id="Animation_lwrhb"]
+resource_name = "MessageShow"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b3m12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l77wm"]
+_data = {
+"MessageShow": SubResource("Animation_lwrhb"),
+"RESET": SubResource("Animation_b3m12")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rc3j0"]
+bg_color = Color(0.619608, 0.317647, 0.235294, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.25098, 0.109804, 0.0705882, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p2dvd"]
+font = ExtResource("1_0ghik")
+font_size = 105
+font_color = Color(0.941176, 0.643137, 0.196078, 1)
+shadow_size = 20
+shadow_color = Color(0.913725, 0.0745098, 0.180392, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lrwdk"]
+font = ExtResource("1_0ghik")
+font_size = 30
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j0t7h"]
+font = ExtResource("1_0ghik")
+font_size = 105
+font_color = Color(0, 0.839216, 0.6, 1)
+shadow_size = 20
+shadow_color = Color(0.129412, 0.333333, 0.203922, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gjr4n"]
+font = ExtResource("1_0ghik")
+font_size = 64
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yrtei"]
+font = ExtResource("1_0ghik")
+font_size = 32
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_u11sd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UpperLeft" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 11.0
+offset_right = 1149.0
+offset_bottom = 74.0
+mouse_filter = 2
+theme_override_constants/separation = -5
+
+[node name="YourMoners" type="Label" parent="Control/UpperLeft"]
+layout_mode = 2
+text = "YOUR MONEY: 5"
+label_settings = SubResource("LabelSettings_a4vny")
+vertical_alignment = 1
+
+[node name="PlayerMoners" type="Label" parent="Control/UpperLeft"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "PLAYER MONEY: 0"
+label_settings = SubResource("LabelSettings_6usr7")
+vertical_alignment = 1
+
+[node name="UnitScroll" type="ScrollContainer" parent="Control"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fkfg")
+
+[node name="Margin" type="MarginContainer" parent="Control/UnitScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="Hbox" type="HBoxContainer" parent="Control/UnitScroll/Margin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Free" type="Button" parent="Control/UnitScroll/Margin/Hbox"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_44tmv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_73e1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cdrr0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8jw1s")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_v0hiw")
+script = ExtResource("2_3w4uh")
+cooldown = 1.5
+
+[node name="Sprite" type="TextureRect" parent="Control/UnitScroll/Margin/Hbox/Free"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.204, 0.204)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("4_oeio2")
+
+[node name="Label" type="Label" parent="Control/UnitScroll/Margin/Hbox/Free"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "FREE"
+label_settings = SubResource("LabelSettings_l581j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cooldown" type="TextureRect" parent="Control/UnitScroll/Margin/Hbox/Free"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.129, 0.129)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("5_rhqxi")
+
+[node name="Guy" type="Button" parent="Control/UnitScroll/Margin/Hbox"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_44tmv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_73e1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qqco2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_i613a")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_v0hiw")
+script = ExtResource("2_3w4uh")
+the_enemy_name = "Guy"
+cooldown = 7.0
+
+[node name="Sprite" type="TextureRect" parent="Control/UnitScroll/Margin/Hbox/Guy"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.208, 0.208)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("5_6o8r0")
+
+[node name="Label" type="Label" parent="Control/UnitScroll/Margin/Hbox/Guy"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "10"
+label_settings = SubResource("LabelSettings_l581j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cooldown" type="TextureRect" parent="Control/UnitScroll/Margin/Hbox/Guy"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.129, 0.129)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("5_rhqxi")
+
+[node name="Spider" type="Button" parent="Control/UnitScroll/Margin/Hbox"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_44tmv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_73e1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qqco2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_i613a")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_v0hiw")
+script = ExtResource("2_3w4uh")
+the_enemy_name = "SpiderEnemy"
+cooldown = 10.0
+
+[node name="Sprite" type="TextureRect" parent="Control/UnitScroll/Margin/Hbox/Spider"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.186, 0.186)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("6_j5d5g")
+
+[node name="Label" type="Label" parent="Control/UnitScroll/Margin/Hbox/Spider"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "15"
+label_settings = SubResource("LabelSettings_l581j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cooldown" type="TextureRect" parent="Control/UnitScroll/Margin/Hbox/Spider"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.129, 0.129)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("5_rhqxi")
+
+[node name="Archer" type="Button" parent="Control/UnitScroll/Margin/Hbox"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_44tmv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_73e1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qqco2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_i613a")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_v0hiw")
+script = ExtResource("2_3w4uh")
+the_enemy_name = "Archer"
+cooldown = 7.0
+
+[node name="Sprite" type="TextureRect" parent="Control/UnitScroll/Margin/Hbox/Archer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.973
+offset_top = -252.0
+offset_right = 249.027
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.201, 0.201)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("7_f1abo")
+
+[node name="Label" type="Label" parent="Control/UnitScroll/Margin/Hbox/Archer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "20"
+label_settings = SubResource("LabelSettings_l581j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cooldown" type="TextureRect" parent="Control/UnitScroll/Margin/Hbox/Archer"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.129, 0.129)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("5_rhqxi")
+
+[node name="Leader" type="Button" parent="Control/UnitScroll/Margin/Hbox"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_44tmv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_73e1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qqco2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_i613a")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_v0hiw")
+script = ExtResource("2_3w4uh")
+the_enemy_name = "Leader"
+cooldown = 15.0
+
+[node name="Sprite" type="TextureRect" parent="Control/UnitScroll/Margin/Hbox/Leader"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -265.0
+offset_right = 250.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.208, 0.208)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("8_cjxgq")
+
+[node name="Label" type="Label" parent="Control/UnitScroll/Margin/Hbox/Leader"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "40"
+label_settings = SubResource("LabelSettings_l581j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cooldown" type="TextureRect" parent="Control/UnitScroll/Margin/Hbox/Leader"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.129, 0.129)
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("5_rhqxi")
+
+[node name="Message" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -414.5
+offset_top = -130.0
+offset_right = 414.5
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(414, 23)
+text = "MESSAGE HERE"
+label_settings = SubResource("LabelSettings_dji3i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessagePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l77wm")
+}
+speed_scale = 2.0
+
+[node name="Tutorial" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Tutorial"]
+modulate = Color(1, 1, 1, 0.207843)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.596078, 0.454902, 0.843137, 1)
+
+[node name="Panel" type="Panel" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.5
+offset_top = -204.5
+offset_right = 315.5
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rc3j0")
+
+[node name="Label" type="Label" parent="Tutorial/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.5
+offset_top = -118.0
+offset_right = 170.5
+offset_bottom = 3.0
+grow_horizontal = 2
+text = "TUTORIAL"
+label_settings = SubResource("LabelSettings_p2dvd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pages" type="Control" parent="Tutorial/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Page1" type="Control" parent="Tutorial/Panel/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Panel/Pages/Page1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -37.5
+offset_right = 290.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "HI SO THIS IS UNFAIR FIGHT
+IM GONNA GIVE YOU A QUICK RUNDOWN OF THE STUFF
+PRESS \"NEXT\" TO CONTINUE"
+label_settings = SubResource("LabelSettings_lrwdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Page2" type="Control" parent="Tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Panel/Pages/Page2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_top = 28.0
+offset_right = 290.0
+offset_bottom = 103.0
+grow_horizontal = 2
+text = "YOUR GOAL IS TO KILL THE PLAYER
+AKA THIS GUY:"
+label_settings = SubResource("LabelSettings_lrwdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Tutorial/Panel/Pages/Page2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -290.0
+offset_top = -81.0
+offset_right = 290.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "YOU CAN TELL WHERE HE'S HEADED BY THE
+GLOWING GREEN CIRCLE"
+label_settings = SubResource("LabelSettings_lrwdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/Panel/Pages/Page2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = -96.5
+offset_right = 135.5
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_plov8")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Page3" type="Control" parent="Tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Panel/Pages/Page3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_top = 28.0
+offset_right = 290.0
+offset_bottom = 103.0
+grow_horizontal = 2
+text = "YOU CAN DO SO BY SPAWNING THE ENEMIES
+YOU CAN SELECT THEM ON THE HOTBAR"
+label_settings = SubResource("LabelSettings_lrwdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Tutorial/Panel/Pages/Page3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -290.0
+offset_top = -81.0
+offset_right = 290.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "YOU EARN CASH FOR EACH ENEMY
+THE PLAYER KILLS"
+label_settings = SubResource("LabelSettings_lrwdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/Panel/Pages/Page3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.5
+offset_top = -119.0
+offset_right = 121.5
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_cjxgq")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Page4" type="Control" parent="Tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Panel/Pages/Page4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_top = 28.0
+offset_right = 290.0
+offset_bottom = 103.0
+grow_horizontal = 2
+text = "YOU CANT SPAWN ENEMIES
+INSIDE THE PLAYER CIRCLE"
+label_settings = SubResource("LabelSettings_lrwdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/Panel/Pages/Page4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -94.0
+offset_right = 118.5
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_qh7ci")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Page5" type="Control" parent="Tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Panel/Pages/Page5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -57.0
+offset_right = 290.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THATS IT IM PRETTY SURE
+YOU CAN ACTUALLY GET INTO THE GAME NOW
+PRESS \"NEXT\""
+label_settings = SubResource("LabelSettings_lrwdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Page6" type="Control" parent="Tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Panel/Pages/Page6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -57.0
+offset_right = 290.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ACTUALLY NVM I FORGOT TO SAY
+
+WASD - TO MOVE CAMERA
+MOUSE WHEEL - TO ZOOM IN/OUT
+LEFT CLICK - PLACE/PICK ENEMY
+
+ok now you can go into the game"
+label_settings = SubResource("LabelSettings_lrwdk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextButton" type="Button" parent="Tutorial/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -53.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_0ghik")
+theme_override_font_sizes/font_size = 29
+text = "NEXT"
+
+[node name="White" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.313726)
+
+[node name="WinScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlackBg" type="ColorRect" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0862745, 0.0745098, 0.137255, 0)
+
+[node name="ScreenStuff" type="Control" parent="WinScreen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoStuff" type="VBoxContainer" parent="WinScreen/ScreenStuff"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.5
+offset_top = -303.0
+offset_right = 222.5
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="WinLabel" type="Label" parent="WinScreen/ScreenStuff/InfoStuff"]
+layout_mode = 2
+text = "YOU WON!"
+label_settings = SubResource("LabelSettings_j0t7h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="WinScreen/ScreenStuff/InfoStuff"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="WinScreen/ScreenStuff/InfoStuff"]
+layout_mode = 2
+text = "TIME: 3232"
+label_settings = SubResource("LabelSettings_gjr4n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="WinScreen/ScreenStuff/InfoStuff"]
+layout_mode = 2
+text = "ENEMIES SPAWNED: 1000
+"
+label_settings = SubResource("LabelSettings_yrtei")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="WinScreen/ScreenStuff/InfoStuff"]
+layout_mode = 2
+text = "DAMAGE TAKEN: 2"
+label_settings = SubResource("LabelSettings_yrtei")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="WinScreen/ScreenStuff/InfoStuff"]
+layout_mode = 2
+text = "MONEY SPENT: 3"
+label_settings = SubResource("LabelSettings_yrtei")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="WinScreen/ScreenStuff"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.5
+offset_top = 154.5
+offset_right = 222.5
+offset_bottom = 193.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Replay" type="Button" parent="WinScreen/ScreenStuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_0ghik")
+theme_override_font_sizes/font_size = 26
+text = "REPLAY"
+
+[node name="Exit" type="Button" parent="WinScreen/ScreenStuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_0ghik")
+theme_override_font_sizes/font_size = 26
+text = "EXIT"
+
+[connection signal="mouse_entered" from="Control/UnitScroll" to="." method="_on_unit_scroll_mouse_entered"]
+[connection signal="mouse_exited" from="Control/UnitScroll" to="." method="_on_unit_scroll_mouse_exited"]
+[connection signal="pressed" from="Tutorial/Panel/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="WinScreen/ScreenStuff/Buttons/Replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="WinScreen/ScreenStuff/Buttons/Exit" to="." method="_on_exit_pressed"]
