@@ -36,10 +36,12 @@ func show_message(new_message:String):
 
 func freeze():
 	$White.show()
-	Engine.time_scale = 0.05
+	Engine.time_scale = 0.1
+	$WinMusic.play()
 	await get_tree().create_timer(1.0,true,false,true).timeout
+	$Music.stop()
 	Engine.time_scale = 1.0
-	$Control/UnitScroll.hide()
+	$Control/UnitScroll/Margin.hide()
 	$White.hide()
 	await get_tree().create_timer(2.0,true,false,true).timeout
 	show_win_screen()

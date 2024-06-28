@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bp2bm3mk0qrqc"]
+[gd_scene load_steps=12 format=3 uid="uid://bp2bm3mk0qrqc"]
 
 [ext_resource type="Script" path="res://Scripts/CameraControls.gd" id="1_ckqpr"]
 [ext_resource type="PackedScene" uid="uid://cvb4s7lo2rbaw" path="res://Scenes/Player/Player.tscn" id="1_kuivi"]
 [ext_resource type="PackedScene" uid="uid://bovj5tnajgimu" path="res://Scenes/Enemies/EnemyDirector.tscn" id="1_pqjal"]
 [ext_resource type="Texture2D" uid="uid://cu1mxtwi5dbwi" path="res://Assets/Textures/MapGlow.png" id="4_foq3l"]
-[ext_resource type="AudioStream" uid="uid://da5twfmf1rhxu" path="res://Assets/Sound/Music/MainMusic.mp3" id="5_570fx"]
 [ext_resource type="Texture2D" uid="uid://bvjslejx2abus" path="res://Assets/Textures/grass card.png" id="6_wwx7b"]
 [ext_resource type="Texture2D" uid="uid://bqlqrlppsxr2s" path="res://Assets/Textures/grass card2.png" id="7_k4jr1"]
 [ext_resource type="Texture2D" uid="uid://ctsjegof2sxkm" path="res://Assets/Textures/grass card3.png" id="8_e4al5"]
@@ -97,11 +96,6 @@ size = Vector3(102.5, 31, 1)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50.7, 15, -0.25)
 visible = false
 size = Vector3(102.5, 31, 1)
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_570fx")
-volume_db = -6.5
-autoplay = true
 
 [node name="Grass" type="Node3D" parent="."]
 

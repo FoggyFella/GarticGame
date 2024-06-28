@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cp6ytaq80ogtb"]
+[gd_scene load_steps=35 format=3 uid="uid://cp6ytaq80ogtb"]
 
 [ext_resource type="FontFile" uid="uid://cg6wlkpjn631t" path="res://Assets/Fonts/londrina/LondrinaSolid-Regular.otf" id="1_0ghik"]
 [ext_resource type="Script" path="res://Scenes/Enemies/UI.gd" id="1_u11sd"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cgu67clgxwiti" path="res://Assets/EnemyRenders/gremlin leader.png" id="8_cjxgq"]
 [ext_resource type="Texture2D" uid="uid://b8epr1spu6jym" path="res://Assets/TutorialStuff/Player.jpg" id="10_plov8"]
 [ext_resource type="Texture2D" uid="uid://dwmr5teyikb1p" path="res://Assets/Textures/PlayerArea.png" id="11_qh7ci"]
+[ext_resource type="AudioStream" uid="uid://da5twfmf1rhxu" path="res://Assets/Sound/Music/MainMusic.mp3" id="12_trpiw"]
+[ext_resource type="AudioStream" uid="uid://ngbg8qbk481x" path="res://Assets/Sound/Music/WinMusic.mp3" id="13_426d6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a4vny"]
 font = ExtResource("1_0ghik")
@@ -1083,6 +1085,15 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_0ghik")
 theme_override_font_sizes/font_size = 26
 text = "EXIT"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_trpiw")
+volume_db = -6.5
+autoplay = true
+
+[node name="WinMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_426d6")
+volume_db = -2.0
 
 [connection signal="mouse_entered" from="Control/UnitScroll" to="." method="_on_unit_scroll_mouse_entered"]
 [connection signal="mouse_exited" from="Control/UnitScroll" to="." method="_on_unit_scroll_mouse_exited"]
